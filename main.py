@@ -19,13 +19,6 @@ import tensorflow as tf
 import numpy as np
 model = load_model('model.h5')
 
-# d = [0, 17.45, 6.66, 0, 2, 0.95]
-#
-# input_data = np.array([d])
-# # e = tf.reshape(d, shape=(tf.shape(d)[0], -1))
-# f = model.predict(input_data)
-# print(f[0][0])
-
 class Data(BaseModel):
     crop: float
     temperature: float
@@ -58,5 +51,8 @@ async def sendData(info : Request):
 
 
 
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
 
 
